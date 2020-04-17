@@ -121,25 +121,20 @@ plotGCaMP_multi <- function(FileFilter,
 
     neuronfiles <- file.path(folderPath, neuronfiles)
 
-    message("merging imageJ files")
+    message("********merging imageJ files*********")
     print(neuronfiles)
     purrr::map(
       neuronfiles,
       ~ merge_FIJI_data(neuronfile = ., show.plots = show.plots, backsub = backsub)
     )
 
-    message("your folderPath is")
-    print(folderPath)
 
     files <- list.files(file.path(folderPath), pattern = "*ImageJ_data.csv", recursive = TRUE)
     files <- files[stringr::str_detect(files, pattern = paste0(FileFilter))]
     filenames <- files
     files <- file.path(folderPath, files)
-    message("******your folderPath is*******")
-    print(folderPath)
-    message("***** your Image_J final files are ******")
-    print(files)
-    message("correcting photobleaching")
+
+    message("*********correcting photobleaching********")
 
     data <- purrr::map(files, ~ Olfactory.Imaging::expfit.all(
       filename = .,
@@ -151,11 +146,7 @@ plotGCaMP_multi <- function(FileFilter,
     ))
   }
 
-  message("merging corrected traces...")
-
-  print(filenames)
-  print(data)
-
+  message("merging corrected traces, if uncorrected, the 'correction' field will say 'raw'")
 
   data %<>% tibble(
     data = .,

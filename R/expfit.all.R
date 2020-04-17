@@ -1,4 +1,4 @@
-#' exp.fit.all.log.lin
+#' expfit.all
 #'
 #' Function takes a list of calcium imaging files by filenames in the current working directory (.mat files)
 #' and performs a simple exponential regression fit to normalize the deltaF/F signal. This function incorporates a linear
@@ -10,9 +10,9 @@
 #' @importFrom magrittr "%>%"
 #' @importFrom magrittr "%<>%"
 #' @export
-#' @examples data <- exp.fit.all.log.lin(files[1], skip.time = 10)
+#' @examples data <- expfit.all(files[1], skip.time = 10)
 #'
-exp.fit.all.log.lin <- function(filename,
+expfit.all <- function(filename,
                                 skip.time,
                                 matlab = FALSE,
                                 show.plots = TRUE,

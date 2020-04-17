@@ -7,9 +7,6 @@
 merge_FIJI_data(neuronfile, backsub = TRUE, show.plots = TRUE,
   frame.rate = 4)
 }
-\arguments{
-\item{filename}{}
-}
 \description{
 This helper function takes a group of measurements output from registerquantGCaMP.ijm imageJ macro
 and generates a merged .csv file with mean neuron pixel values, mean background pixel values, and the

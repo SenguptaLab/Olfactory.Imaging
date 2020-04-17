@@ -6,6 +6,7 @@
 #' in place to the enclosing folder.
 #'
 #' @param filename
+#' @export
 #'
 merge_FIJI_data <- function(neuronfile, backsub = TRUE,
                             show.plots = TRUE, frame.rate = 4) {
